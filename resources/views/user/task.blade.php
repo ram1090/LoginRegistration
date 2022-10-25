@@ -31,7 +31,7 @@
             </div>
             <div class="card-body">
                 <table class="table display responsive" width="100%" id="todo_table">
-                    <tbody>
+                    <thead>
                         <tr>
                             <th>Id</th>
                             <th>Task</th>
@@ -39,7 +39,7 @@
                             <th>Created At</th>
                             <th>Action</th>
                         </tr>
-                    </tbody>
+                    </thead>
                 </table>
             </div>
         </div>
