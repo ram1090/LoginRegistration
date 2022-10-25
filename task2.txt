@@ -1,0 +1,37 @@
+Task 2
+
+1.	Task 1 Will be the base for this Task. So continue in the same .
+2.	Now in Task 2 . You are going to make Rest API’s for a Todo Application.
+3.	Create a New Controller ( TaskController ) and Model (Task)
+4.	Create a new table “task” with columns (id , user_id , task , status => pending or done => (default pending )) using Migration.
+5.	You need to create 2 APIs for Todo Application 
+ a. Post : “/todo/add” for Adding a task in Task Table for a particular user
+i.Params : task , user_id 
+ii.	Response : task => taskObject , status , message 
+
+b.	Post : “todo/status” for changing the status for Particular task.
+i.	Params : task_id , status
+ii. Response : task => taskObject , status , message
+
+6.	API’s should be Authenticated using a token or API_KEY = “helloatg”
+7.	Use Middleware for Authentication of these API’s.
+8.	APIs should return status => 1 and message => “successfully created a task” or  “Marked task as done ” or “marked task as pending”.
+9.	If Authentication fails then API should return status => 0 and message => “Invalid API key”.
+10.	Add Eloquent Relations for User and Task. 
+
+
+As part of submission,
+Send a < 30 sec video (with your audio) demonstrating the following:
+1.	Call the APIs (using postman). Explain the API response. 
+
+2.	Call the APIs with invalid API_KEY and Explain the Response. 
+
+3.	Show Task table also after Calling Each API
+
+
+Submit your task in the link given-
+https://forms.gle/TtZSgepAWEG6ypXt7
+
+Deadline : 25th October 2022, 7pm
+
+All the best :)
