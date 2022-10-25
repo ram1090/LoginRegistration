@@ -17,7 +17,7 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return DataTables::of(Task::query())
+            return DataTables::of(Task::where("user_id",$request->user()->id)->get())
             ->editColumn('created_at', function(Task $task) {
                 return $task->created_at->diffForHumans();
             })
@@ -80,17 +80,25 @@ class TaskController extends Controller
         $data = $validator->validated();
         
         $task = Task::find($data['task_id']);
-        $task->status = $data['status'];
+        if(!is_null($task)){
 
-        if($task->save()){
-            $this->response['task'] = $task;
-            $this->response['status'] = 'success';
-            $this->response['message'] = 'Task status is changed successfully.';
+            $task->status = $data['status'];
+
+            if($task->save()){
+                $this->response['task'] = $task;
+                $this->response['status'] = 'success';
+                $this->response['message'] = 'Task status is changed successfully.';
+            }
+            else{
+                $this->response['status'] = 'error';
+                $this->response['message'] = 'Unable to change task status.';
+                $this->status_code = 500;
+            }
         }
         else{
             $this->response['status'] = 'error';
-            $this->response['message'] = 'Unable to change task status.';
-            $this->status_code = 500;
+            $this->response['message'] = 'Requested task not found.';
+            $this->status_code = 404;
         }
         return response()->json($this->response,$this->status_code);
     }
@@ -108,16 +116,23 @@ class TaskController extends Controller
         }
 
         $task = Task::find($id);
-        $task->task = $request->task;
-        if($task->save()){
-            $this->response['task'] = $task;
-            $this->response['status'] = 'success';
-            $this->response['message'] = 'Task updated successfully.';
+        if(!is_null($task)){
+            $task->task = $request->task;
+            if($task->save()){
+                $this->response['task'] = $task;
+                $this->response['status'] = 'success';
+                $this->response['message'] = 'Task updated successfully.';
+            }
+            else{
+                $this->response['status'] = 'error';
+                $this->response['message'] = 'Unable to change task status.';
+                $this->status_code = 500;
+            }
         }
         else{
             $this->response['status'] = 'error';
-            $this->response['message'] = 'Unable to change task status.';
-            $this->status_code = 500;
+            $this->response['message'] = 'Requested task not found.';
+            $this->status_code = 404;
         }
         return response()->json($this->response,$this->status_code);
     }
@@ -126,15 +141,22 @@ class TaskController extends Controller
     public function delete($id)
     {
         $task = Task::find($id);
-        if($task->delete()){
-            $this->response['task'] = $task;
-            $this->response['status'] = 'success';
-            $this->response['message'] = 'Task deleted successfully.';
+        if(!is_null($task)){
+            if($task->delete()){
+                $this->response['task'] = $task;
+                $this->response['status'] = 'success';
+                $this->response['message'] = 'Task deleted successfully.';
+            }
+            else{
+                $this->response['status'] = 'error';
+                $this->response['message'] = 'Unable to delete this task.';
+                $this->status_code = 500;
+            }
         }
         else{
             $this->response['status'] = 'error';
-            $this->response['message'] = 'Unable to delete this task.';
-            $this->status_code = 500;
+            $this->response['message'] = 'Requested task not found.';
+            $this->status_code = 404; 
         }
         return response()->json($this->response,$this->status_code);
     }
