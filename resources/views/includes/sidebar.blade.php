@@ -7,7 +7,10 @@
     <div class="offcanvas-body">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="{{route('dashboard')}}">Dashboard</a>
+                <a class="nav-link {{ (request()->is('dashboard')) ? 'active' : '' }}" href="{{route('dashboard')}}">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->is('todo-list')) ? 'active' : '' }}" href="{{route('todo')}}">Todo List</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#blog" role="button">
