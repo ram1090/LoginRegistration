@@ -16,7 +16,7 @@
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 <script src="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-<script src="{{ asset('assets/js/todo.js') }}"></script>
+<script src="{{ asset('assets/js/todo.js?temp='.time()) }}"></script>
 <!-- custom script section end  -->
 @endsection
 

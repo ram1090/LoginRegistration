@@ -38,7 +38,7 @@
     <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="{{asset('assets/js/dashboard.js')}}"></script>
+    <script src="{{asset('assets/js/dashboard.js?temp='.time())}}"></script>
     <script>
     $.ajaxSetup({
         headers: {
