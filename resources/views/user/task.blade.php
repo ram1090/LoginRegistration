@@ -6,7 +6,7 @@
 <!-- custom style section start  -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 <link rel="stylesheet"
-    href="{{ asset('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+    href="{{ asset('assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css?temp='.time()) }}">
 <!-- custom style section end  -->
 @endsection
 
