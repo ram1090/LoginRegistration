@@ -17,7 +17,7 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return DataTables::of(Task::where("user_id",$request->user()->id)->get())
+            return DataTables::of(Task::where("user_id",$request->user()->id)->latest())
             ->editColumn('created_at', function(Task $task) {
                 return $task->created_at->diffForHumans();
             })
