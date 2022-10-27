@@ -1,0 +1,16 @@
+Task 3
+
+Task 3 will be in Continuation of task 2. 
+On Dashboard List Task for Logged in User.
+Use the API created in task 2 for marking a task done or pending using AJAX.
+Add button for adding a task in Task for the logged in user using AJAX.
+No need to create a fancy layout you can use Bootstrap. Functionality should be smooth and valid.
+Update the Project on Hosting Site which is already done in task1. 
+Provide the URL and Github Link also. 
+
+Submit your task in the link given-
+https://forms.gle/TtZSgepAWEG6ypXt7
+
+Deadline: 27th October 2022, 9pm
+
+All the best:)
